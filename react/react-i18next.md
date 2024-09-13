@@ -55,15 +55,21 @@ export { i18next };
 ## Usage
 
 ```tsx
-import { I18nextProvider } from "react-i18next";
+import { I18nextProvider, useTranslation } from "react-i18next";
 import { i18next } from "<exportedConfiguration>";
 
 export function App() {
 
   return (
     <I18nextProvider i18n={i18next}>
-      {/* Your app goes here */}
+      <Component />
     </I18nextProvider>;
   )
+}
+
+export function Component() {
+  const { t } = useTranslation(['namespace'])
+
+  return <p>{t('namespace:my_label')}</p>
 }
 ```
